@@ -21,13 +21,10 @@ import {
 } from "./../helpers/collegeQueries";
 import classnames from "classnames";
 import TableRender from "./../components/college/TableRender";
-function CollegeDashboard(props) {
+
+function CollegeDashboard({ user }) {
   const [activeTab, setActiveTab] = useState("1");
-  const { buttonLabel, className } = props;
   const [tableData, settableData] = useState([]);
-  const [user, setuser] = useState(
-    JSON.parse(localStorage.getItem("aimnet-user"))
-  );
   /***
    * Active Tabs
    * 1 - Student Data
@@ -44,9 +41,9 @@ function CollegeDashboard(props) {
       //collegeGet({ clg_id: user.clg_id }, activeTab, settableData, () => {});
     }
   };
-  useEffect(() => {
-    collegeGet({ clg_id: user.clg_id }, activeTab, settableData, () => {});
-  }, [activeTab]);
+  // useEffect(() => {
+  //   collegeGet({ clg_id: user.clg_id }, activeTab, settableData, () => {});
+  // }, [activeTab]);
 
   return (
     <div>
@@ -120,7 +117,7 @@ function CollegeDashboard(props) {
         </TabPane>
       </TabContent>
 
-      <Modal isOpen={modal} toggle={toggleModal} className={className}>
+      <Modal isOpen={modal} toggle={toggleModal}>
         <ModalHeader toggleModal={toggleModal}>
           Upload the data to DB
         </ModalHeader>

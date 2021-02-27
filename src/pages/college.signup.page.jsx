@@ -60,16 +60,14 @@ export default function SignupC({ setdp, setuser: setuserprop, setloggedin }) {
       let dp = Math.floor(Math.random() * 9);
       FBsignup(
         {
-          randomProfile: dp,
           email: user.email,
-          password: user.pass1,
-          fullName: user.fullName,
+          pass1: user.pass1,
+          pass2: user.pass2,
+          isCollege: true,
         },
         (user, dp) => {
           setsuccess(true);
           setuserprop(user);
-
-          setdp(dp);
           console.log(user);
           setloggedin(true);
         },

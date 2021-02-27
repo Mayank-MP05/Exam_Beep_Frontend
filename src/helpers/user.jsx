@@ -24,15 +24,15 @@ export const FBlogout = (successFn, errorFn) => {
 
 //Function to Create New User
 export const FBsignup = (
-  { randomProfile, email, password, fullName, isCollege },
+  { email, pass1, pass2, isCollege },
   successFn,
   errorFn
 ) => {
   axios
     .post(`${apiUrl}/signup`, {
       email,
-      pass1: password,
-      pass2: password,
+      pass1: pass1,
+      pass2: pass2,
       isCollege,
     })
     .then((d) => {

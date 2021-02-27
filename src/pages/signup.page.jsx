@@ -21,13 +21,13 @@ export default function SignupV({ setdp, setuser: setuserprop, setloggedin }) {
     //console.log(user);
   };
   const sucessAlert = () => (
-    <div className="alert alert-success">
+    <div className='alert alert-success'>
       Account Creation Sucessful ! redirecting to Dashboard
     </div>
   );
 
   const errorAlert = () => (
-    <div className="alert alert-danger">
+    <div className='alert alert-danger'>
       {errorbody.message
         ? errorbody.message
         : "Something Went Wrong Please Try Again !"}
@@ -60,10 +60,10 @@ export default function SignupV({ setdp, setuser: setuserprop, setloggedin }) {
       let dp = Math.floor(Math.random() * 9);
       FBsignup(
         {
-          randomProfile: dp,
           email: user.email,
-          password: user.pass1,
-          fullName: user.fullName,
+          pass1: user.pass1,
+          pass2: user.pass2,
+          isCollege: false,
         },
         (user, dp) => {
           setsuccess(true);
@@ -84,67 +84,67 @@ export default function SignupV({ setdp, setuser: setuserprop, setloggedin }) {
     <Fragment>
       {success && sucessAlert()}
       {error && errorAlert()}
-      <div className="SignUp">
-        <div className="StudentGraphic">
-          <img src={StudentGraphic} alt="Student Graphic" />
+      <div className='SignUp'>
+        <div className='StudentGraphic'>
+          <img src={StudentGraphic} alt='Student Graphic' />
         </div>
-        <div className="SignUpFormContainer">
-          <div className="SignUpForm">
+        <div className='SignUpFormContainer'>
+          <div className='SignUpForm'>
             <h4>ExamBeep Registration Form</h4>
-            <div className="form-group">
+            <div className='form-group'>
               <label>Email address</label>
               <input
-                type="email"
-                className="form-control"
-                name="email"
+                type='email'
+                className='form-control'
+                name='email'
                 value={user.email}
                 onChange={handleChange}
-                placeholder="ex. johndoe@email.com"
+                placeholder='ex. johndoe@email.com'
               />
             </div>
-            <div className="form-group">
+            <div className='form-group'>
               <label>Full Name</label>
               <input
-                type="text"
-                name="fullName"
+                type='text'
+                name='fullName'
                 value={user.fullName}
                 onChange={handleChange}
-                className="form-control"
-                placeholder="ex. John Doe"
+                className='form-control'
+                placeholder='ex. John Doe'
               />
             </div>
-            <div className="form-group">
+            <div className='form-group'>
               <label>Password</label>
               <input
-                type="password"
-                name="pass1"
+                type='password'
+                name='pass1'
                 value={user.pass1}
                 onChange={handleChange}
-                className="form-control"
-                placeholder="Enter Password"
+                className='form-control'
+                placeholder='Enter Password'
               />
             </div>
-            <div className="form-group">
+            <div className='form-group'>
               <label>Password Confirmation</label>
               <input
-                type="password"
-                name="pass2"
+                type='password'
+                name='pass2'
                 value={user.pass2}
                 onChange={handleChange}
-                className="form-control"
-                placeholder="Confirm Password"
+                className='form-control'
+                placeholder='Confirm Password'
               />
             </div>
-            <div className="button">
-              <button className="btn btn-primary w-75" onClick={onSubmit}>
+            <div className='button'>
+              <button className='btn btn-primary w-75' onClick={onSubmit}>
                 Sign up
               </button>
             </div>
-            <p className="m-auto p-2">
-              Already have an account? <Link to="/login">Log in here</Link>
+            <p className='m-auto p-2'>
+              Already have an account? <Link to='/login'>Log in here</Link>
             </p>
-            <p className="m-auto p-2">
-              Want college account? <Link to="/collegeSignup">click here</Link>
+            <p className='m-auto p-2'>
+              Want college account? <Link to='/collegeSignup'>click here</Link>
             </p>
           </div>
         </div>
