@@ -12,6 +12,7 @@ import axios from "axios";
 import Sidebar from "react-sidebar";
 import NavbarV from "./components/general/navbar.component";
 import SidebarV from "./components/general/sidebar.component";
+import FooterV from "./components/general/footer.component";
 
 const mql = window.matchMedia(`(min-width: 800px)`);
 

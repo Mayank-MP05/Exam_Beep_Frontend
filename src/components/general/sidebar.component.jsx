@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { imgArr } from "../../data/userimages";
-// import { FBlogout } from "../../helpers/user";
+import { imgArr } from "./../../data/userimages";
+import { FBlogout } from "./../../helpers/user";
 import { Button } from "react-bootstrap";
 import "./sidebar.style.css";
 const IconStyling = {
@@ -10,18 +10,17 @@ const IconStyling = {
 };
 export default function SidebarV({ control, cleanuser, user, loggedin, dp }) {
   const logout = () => {
-    // FBlogout(
-    //   () => {
-    //     //Sucess Function
-    //     //console.log("Log Out Successful");
-
-    //     cleanuser();
-    //   },
-    //   () => {
-    //     //Error Function
-    //     console.log("Error Occured");
-    //   }
-    // );
+    FBlogout(
+      () => {
+        //Sucess Function
+        //console.log("Log Out Successful");
+        cleanuser();
+      },
+      () => {
+        //Error Function
+        console.log("Error Occured");
+      }
+    );
   };
   return (
     <div
@@ -67,25 +66,11 @@ export default function SidebarV({ control, cleanuser, user, loggedin, dp }) {
         <div className='card-text'>
           <ul className='list-group list-group-flush'>
             <Link
-              to='/new'
-              className='list-group-item'
-              onClick={() => control(false)}>
-              <i className='fa fa-plus-circle' style={IconStyling}></i>
-              Create New Track
-            </Link>
-            <Link
-              to='/app'
+              to='/dashboard'
               className='list-group-item'
               onClick={() => control(false)}>
               <i className='fa fa-music' style={IconStyling}></i>
-              All Tracks
-            </Link>
-            <Link
-              to='/favorites'
-              className='list-group-item'
-              onClick={() => control(false)}>
-              <i className='fa fa-heartbeat' style={IconStyling}></i>
-              Favorites
+              Dashboard
             </Link>
             <Link
               to='/profile'
