@@ -1,7 +1,6 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { FBlogin } from "../helpers/user";
 import { Link, Redirect, useLocation } from "react-router-dom";
-
 export default function LoginV({ setuser: setuserprop, setloggedin }) {
   const [user, setuser] = useState({
     email: "",
@@ -65,6 +64,13 @@ export default function LoginV({ setuser: setuserprop, setloggedin }) {
   }, [success]);
 
   useEffect(() => {}, [loc.pathname]);
+
+  useEffect(() => {
+    let user_str = localStorage.getItem("aimnet-user");
+    if (user_str) {
+      setsuccess(JSON.parse(user_str));
+    }
+  }, []);
 
   return (
     <>

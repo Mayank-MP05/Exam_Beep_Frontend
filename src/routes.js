@@ -5,29 +5,38 @@ import {
   Route,
   Link,
   Redirect,
+  useLocation,
 } from "react-router-dom";
 
-function Routes() {
+import LoginV from "./pages/login.page";
+import SignupV from "./pages/signup.page";
+import ProfileV from "./pages/profile.page";
+import Dashboard from "./pages/Dashboard";
+
+function Routes({ loggedin, setuser, setloggedin, user }) {
+  const [music, setmusic] = useState({
+    title: "Default title",
+    notation: "CDEF GABc|",
+  });
   return (
     <Switch>
       <Route path='/dashboard'>
-        {/*
         {loggedin ? (
-          <AllTracks flag={1} user={user} setmusic={setmusic} />
+          <Dashboard user={user} />
         ) : (
           <LoginV setuser={setuser} setloggedin={setloggedin} />
         )}
       </Route>
       <Route path='/login'>
         {loggedin ? (
-          "Dashboard"
+          <Dashboard user={user} />
         ) : (
           <LoginV setuser={setuser} setloggedin={setloggedin} />
         )}
       </Route>
       <Route path='/signup'>
         {loggedin ? (
-          "Dashboard"
+          <Dashboard user={user} />
         ) : (
           <SignupV setuser={setuser} setloggedin={setloggedin} />
         )}
@@ -41,18 +50,17 @@ function Routes() {
       </Route>
       <Route path='/test'>
         {loggedin ? (
-          <Player user={user} notation={music.notation} title={music.title} />
+          <Dashboard user={user} />
         ) : (
           <LoginV setuser={setuser} setloggedin={setloggedin} />
         )}
       </Route>
       <Route path='/*'>
         {loggedin ? (
-          <AllTracks user={user} setmusic={setmusic} />
+          <Dashboard user={user} />
         ) : (
           <LoginV setuser={setuser} setloggedin={setloggedin} />
         )}
-        */}
       </Route>
     </Switch>
   );
