@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { imgArr } from "./../../data/userimages";
+import { imgArr as userArr } from "./../../data/userimages";
+import { imgArr as clgArr } from "./../../data/collegeimages";
 import { FBlogout } from "./../../helpers/user";
 import { Button } from "react-bootstrap";
 import "./sidebar.style.css";
@@ -31,7 +32,9 @@ export default function SidebarV({ control, cleanuser, user, loggedin, dp }) {
           <Fragment>
             <img
               className='card-img-top'
-              src={imgArr[parseInt(dp)]}
+              src={
+                !user.isCollege ? userArr[parseInt(dp)] : clgArr[parseInt(dp)]
+              }
               alt='Card cap'
               id={user.uid}
               style={{

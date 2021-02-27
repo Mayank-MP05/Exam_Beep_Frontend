@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { imgArr } from "./../../data/userimages";
+import { imgArr } from "./../../data/collegeimages";
 
 import Spinner from "react-bootstrap/Spinner";
 
