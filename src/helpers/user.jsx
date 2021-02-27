@@ -70,3 +70,23 @@ export const updateUserData = (
       errorFn();
     });
 };
+
+//Updating PRN and CLg_id
+export const updatePRNandCLGidData = (
+  { email, prn_no, clg_id },
+  successFn,
+  errorFn
+) => {
+  axios
+    .post(`${apiUrl}/userUpdation`, {
+      email,
+      prn_no,
+      clg_id,
+    })
+    .then((d) => {
+      successFn();
+    })
+    .catch((err) => {
+      errorFn();
+    });
+};
