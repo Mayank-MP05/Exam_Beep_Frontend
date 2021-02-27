@@ -2,10 +2,10 @@ import React, { useState, useEffect, Fragment } from "react";
 import { FBsignup } from "../helpers/user";
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
-import StudentGraphic from "../assets/img/StudentGraphic.svg";
+import CollegeGraphic from "../assets/img/CollegeGraphic.png";
 import "../styles/signup.page.css";
 
-export default function SignupV({ setdp, setuser: setuserprop, setloggedin }) {
+export default function SignupC({ setdp, setuser: setuserprop, setloggedin }) {
   const [user, setuser] = useState({
     email: "",
     fullName: "",
@@ -85,9 +85,6 @@ export default function SignupV({ setdp, setuser: setuserprop, setloggedin }) {
       {success && sucessAlert()}
       {error && errorAlert()}
       <div className="SignUp">
-        <div className="StudentGraphic">
-          <img src={StudentGraphic} alt="Student Graphic" />
-        </div>
         <div className="SignUpFormContainer">
           <div className="SignUpForm">
             <h4>ExamBeep Registration Form</h4>
@@ -103,14 +100,14 @@ export default function SignupV({ setdp, setuser: setuserprop, setloggedin }) {
               />
             </div>
             <div className="form-group">
-              <label>Full Name</label>
+              <label>College Name</label>
               <input
                 type="text"
                 name="fullName"
                 value={user.fullName}
                 onChange={handleChange}
                 className="form-control"
-                placeholder="ex. John Doe"
+                placeholder="ex. College of Engineering, Pune."
               />
             </div>
             <div className="form-group">
@@ -143,10 +140,10 @@ export default function SignupV({ setdp, setuser: setuserprop, setloggedin }) {
             <p className="m-auto p-2">
               Already have an account? <Link to="/login">Log in here</Link>
             </p>
-            <p className="m-auto p-2">
-              Want college account? <Link to="/collegeSignup">click here</Link>
-            </p>
           </div>
+        </div>
+        <div className="StudentGraphic">
+          <img src={CollegeGraphic} width="400px" alt="College Graphic" />
         </div>
       </div>
     </Fragment>

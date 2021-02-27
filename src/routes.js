@@ -10,6 +10,7 @@ import {
 
 import LoginV from "./pages/login.page";
 import SignupV from "./pages/signup.page";
+import SignupC from "./pages/college.signup.page";
 import ProfileV from "./pages/profile.page";
 import Dashboard from "./pages/Dashboard";
 
@@ -20,42 +21,49 @@ function Routes({ loggedin, setuser, setloggedin, user }) {
   });
   return (
     <Switch>
-      <Route path='/dashboard'>
+      <Route path="/dashboard">
         {loggedin ? (
           <Dashboard user={user} />
         ) : (
           <LoginV setuser={setuser} setloggedin={setloggedin} />
         )}
       </Route>
-      <Route path='/login'>
+      <Route path="/login">
         {loggedin ? (
           <Dashboard user={user} />
         ) : (
           <LoginV setuser={setuser} setloggedin={setloggedin} />
         )}
       </Route>
-      <Route path='/signup'>
+      <Route path="/signup">
         {loggedin ? (
           <Dashboard user={user} />
         ) : (
           <SignupV setuser={setuser} setloggedin={setloggedin} />
         )}
       </Route>
-      <Route path='/profile'>
+      <Route path="/collegeSignup">
+        {loggedin ? (
+          <Dashboard user={user} />
+        ) : (
+          <SignupC setuser={setuser} setloggedin={setloggedin} />
+        )}
+      </Route>
+      <Route path="/profile">
         {loggedin ? (
           <ProfileV user={user} />
         ) : (
           <LoginV setuser={setuser} setloggedin={setloggedin} />
         )}
       </Route>
-      <Route path='/test'>
+      <Route path="/test">
         {loggedin ? (
           <Dashboard user={user} />
         ) : (
           <LoginV setuser={setuser} setloggedin={setloggedin} />
         )}
       </Route>
-      <Route path='/*'>
+      <Route path="/*">
         {loggedin ? (
           <Dashboard user={user} />
         ) : (
