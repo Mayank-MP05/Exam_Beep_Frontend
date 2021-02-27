@@ -124,51 +124,60 @@ function CollegeDashboard(props) {
         <ModalHeader toggleModal={toggleModal}>
           Upload the data to DB
         </ModalHeader>
-        <ModalBody>
-          <label>Data to be uploaded</label>
-          <div class='input-group mb-3'>
-            <div class='input-group-prepend'>
-              <label class='input-group-text' for='inputGroupSelect01'>
-                Options
-              </label>
+
+        <form
+          action='http://localhost:5000/api/upload'
+          method='POST'
+          enctype='multipart/form-data'>
+          <ModalBody>
+            <label>Data to be uploaded</label>
+            <div class='input-group mb-3'>
+              <div class='input-group-prepend'>
+                <label class='input-group-text' for='inputGroupSelect01'>
+                  Data File Contains
+                </label>
+              </div>
+              <select
+                class='custom-select'
+                id='inputGroupSelect01'
+                name='collection'>
+                <option value='students' selected>
+                  Students
+                </option>
+                <option value='exams'>Exams</option>
+                <option value='results'>Results</option>
+              </select>
             </div>
-            <select class='custom-select' id='inputGroupSelect01'>
-              <option selected>Choose...</option>
-              <option value='1'>One</option>
-              <option value='2'>Two</option>
-              <option value='3'>Three</option>
-            </select>
-          </div>
-          <div class='input-group'>
-            <div class='custom-file'>
-              <input
-                type='file'
-                class='custom-file-input'
-                id='inputGroupFile04'
-                aria-describedby='inputGroupFileAddon04'
-              />
-              <label class='custom-file-label' for='inputGroupFile04'>
-                Choose file
-              </label>
+            <div class='input-group'>
+              <div class='custom-file'>
+                <input
+                  type='file'
+                  name='fileToBeUploaded'
+                  class='custom-file-input'
+                  id='inputGroupFile04'
+                  aria-describedby='inputGroupFileAddon04'
+                />
+                <label class='custom-file-label' for='inputGroupFile04'>
+                  Choose file
+                </label>
+              </div>
+              <div class='input-group-append'>
+                <button
+                  class='btn btn-outline-secondary'
+                  type='button'
+                  id='inputGroupFileAddon04'>
+                  file.csv
+                </button>
+              </div>
             </div>
-            <div class='input-group-append'>
-              <button
-                class='btn btn-outline-secondary'
-                type='button'
-                id='inputGroupFileAddon04'>
-                Button
-              </button>
-            </div>
-          </div>
-        </ModalBody>
-        <ModalFooter>
-          <Button color='primary' onClick={toggleModal}>
-            Upload Data
-          </Button>{" "}
-          <Button color='secondary' onClick={toggleModal}>
-            Cancel
-          </Button>
-        </ModalFooter>
+          </ModalBody>
+          <ModalFooter>
+            <input className='btn btn-success' type='submit' />
+            <Button color='secondary' onClick={toggleModal}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </form>
       </Modal>
     </div>
   );
