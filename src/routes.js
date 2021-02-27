@@ -7,7 +7,10 @@ import {
   Redirect,
 } from "react-router-dom";
 
-function Routes() {
+import LoginV from "./pages/login.page";
+import SignupV from "./pages/signup.page";
+
+function Routes({ loggedin, setuser, setloggedin, user }) {
   return (
     <Switch>
       <Route path='/dashboard'>
@@ -18,20 +21,22 @@ function Routes() {
           <LoginV setuser={setuser} setloggedin={setloggedin} />
         )}
       </Route>
-      <Route path='/login'>
-        {loggedin ? (
-          "Dashboard"
-        ) : (
-          <LoginV setuser={setuser} setloggedin={setloggedin} />
-        )}
-      </Route>
-      <Route path='/signup'>
-        {loggedin ? (
-          "Dashboard"
-        ) : (
-          <SignupV setuser={setuser} setloggedin={setloggedin} />
-        )}
-      </Route>
+        */}
+        <Route path='/login'>
+          {loggedin ? (
+            "Dashboard"
+          ) : (
+            <LoginV setuser={setuser} setloggedin={setloggedin} />
+          )}
+        </Route>
+        <Route path='/signup'>
+          {loggedin ? (
+            "Dashboard"
+          ) : (
+            <SignupV setuser={setuser} setloggedin={setloggedin} />
+          )}
+        </Route>
+        {/*
       <Route path='/profile'>
         {loggedin ? (
           <ProfileV user={user} />
