@@ -72,7 +72,7 @@ export default function SidebarV({ control, cleanuser, user, loggedin, dp }) {
               to='/dashboard'
               className='list-group-item'
               onClick={() => control(false)}>
-              <i className='fa fa-music' style={IconStyling}></i>
+              <i className='fa fa-tachometer' style={IconStyling}></i>
               Dashboard
             </Link>
             <Link
