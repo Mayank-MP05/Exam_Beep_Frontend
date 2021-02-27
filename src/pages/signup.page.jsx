@@ -2,6 +2,8 @@ import React, { useState, useEffect, Fragment } from "react";
 import { FBsignup } from "../helpers/user";
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
+import StudentGraphic from "../assets/img/StudentGraphic.svg";
+import "../styles/signup.page.css";
 
 export default function SignupV({ setdp, setuser: setuserprop, setloggedin }) {
   const [user, setuser] = useState({
@@ -19,13 +21,13 @@ export default function SignupV({ setdp, setuser: setuserprop, setloggedin }) {
     //console.log(user);
   };
   const sucessAlert = () => (
-    <div className='alert alert-success'>
+    <div className="alert alert-success">
       Account Creation Sucessful ! redirecting to Dashboard
     </div>
   );
 
   const errorAlert = () => (
-    <div className='alert alert-danger'>
+    <div className="alert alert-danger">
       {errorbody.message
         ? errorbody.message
         : "Something Went Wrong Please Try Again !"}
@@ -82,58 +84,67 @@ export default function SignupV({ setdp, setuser: setuserprop, setloggedin }) {
     <Fragment>
       {success && sucessAlert()}
       {error && errorAlert()}
-      <div className='card col-md-6 p-2 m-auto'>
-        <h4>AIMNet AI Registration Form</h4>
-        <div className='form-group'>
-          <label>Email address</label>
-          <input
-            type='email'
-            className='form-control'
-            name='email'
-            value={user.email}
-            onChange={handleChange}
-            placeholder='ex. johndoe@email.com'
-          />
+      <div className="SignUp">
+        <div className="StudentGraphic">
+          <img src={StudentGraphic} alt="Student Graphic" />
         </div>
-        <div className='form-group'>
-          <label>Full Name</label>
-          <input
-            type='text'
-            name='fullName'
-            value={user.fullName}
-            onChange={handleChange}
-            className='form-control'
-            placeholder='ex. John Doe'
-          />
+        <div className="SignUpFormContainer">
+          <div className="SignUpForm">
+            <h4>ExamBeep Registration Form</h4>
+            <div className="form-group">
+              <label>Email address</label>
+              <input
+                type="email"
+                className="form-control"
+                name="email"
+                value={user.email}
+                onChange={handleChange}
+                placeholder="ex. johndoe@email.com"
+              />
+            </div>
+            <div className="form-group">
+              <label>Full Name</label>
+              <input
+                type="text"
+                name="fullName"
+                value={user.fullName}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="ex. John Doe"
+              />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                name="pass1"
+                value={user.pass1}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="Enter Password"
+              />
+            </div>
+            <div className="form-group">
+              <label>Password Confirmation</label>
+              <input
+                type="password"
+                name="pass2"
+                value={user.pass2}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="Confirm Password"
+              />
+            </div>
+            <div className="button">
+              <button className="btn btn-primary w-75" onClick={onSubmit}>
+                Sign up
+              </button>
+            </div>
+            <p className="m-auto p-2">
+              Already have an account? <Link to="/login">Log in here</Link>
+            </p>
+          </div>
         </div>
-        <div className='form-group'>
-          <label>Password First</label>
-          <input
-            type='password'
-            name='pass1'
-            value={user.pass1}
-            onChange={handleChange}
-            className='form-control'
-            placeholder='Password1'
-          />
-        </div>
-        <div className='form-group'>
-          <label>Password Confirm</label>
-          <input
-            type='password'
-            name='pass2'
-            value={user.pass2}
-            onChange={handleChange}
-            className='form-control'
-            placeholder='Password1'
-          />
-        </div>
-        <button className='btn btn-primary w-75 m-auto m-2' onClick={onSubmit}>
-          Sign up
-        </button>
-        <p className='m-auto p-2'>
-          Already have an account <Link to='/login'>Log in here</Link>
-        </p>
       </div>
     </Fragment>
   );
