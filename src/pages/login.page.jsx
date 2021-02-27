@@ -19,13 +19,13 @@ export default function LoginV({ setuser: setuserprop, setloggedin }) {
   };
 
   const sucessAlert = () => (
-    <div className="alert alert-success">
+    <div className='alert alert-success'>
       Authentication Complete ! Logged In Sucessful
     </div>
   );
 
   const errorAlert = () => (
-    <div className="alert alert-danger">
+    <div className='alert alert-danger'>
       {errorBody.message
         ? errorBody.message
         : "Something Went Wrong Please Try Again !"}
@@ -81,51 +81,51 @@ export default function LoginV({ setuser: setuserprop, setloggedin }) {
         <Fragment>
           {success && sucessAlert()}
           {error && errorAlert()}
-          <div className="Login">
-            <div className="StudentGraphic">
-              <img src={StudentGraphic} alt="Student Graphic" />
+          <div className='Login'>
+            <div className='StudentGraphic'>
+              <img src={StudentGraphic} alt='Student Graphic' />
             </div>
-            <div className="LoginFormContainer">
-              <div className="LoginForm">
-                <h4 className="text-center">Login to ExamBeep</h4>
-                <div className="form-group">
+            <div className='LoginFormContainer'>
+              <div className='LoginForm'>
+                <h4 className='text-center'>Login to ExamBeep</h4>
+                <div className='form-group'>
                   <label>Email address</label>
                   <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Enter email"
-                    name="email"
+                    type='email'
+                    className='form-control'
+                    placeholder='Enter email'
+                    name='email'
                     value={user.email}
                     onChange={handleChange}
                   />
                 </div>
-                <div className="form-group">
+                <div className='form-group'>
                   <label>Password</label>
                   <input
-                    type="password"
-                    className="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Password"
-                    name="password"
+                    type='password'
+                    className='form-control'
+                    id='exampleInputPassword1'
+                    placeholder='Password'
+                    name='password'
                     value={user.password}
                     onChange={handleChange}
                   />
                 </div>
-                <div className="button">
-                  <button className="btn btn-primary w-75" onClick={onSubmit}>
+                <div className='button'>
+                  <button className='btn btn-primary w-75' onClick={onSubmit}>
                     Log In
                   </button>
                 </div>
-                <p className="m-auto p-2">
+                <p className='m-auto p-2'>
                   Don't have an account?{" "}
-                  <Link to="/signup">Create one here</Link>
+                  <Link to='/signup'>Create one here</Link>
                 </p>
               </div>
             </div>
           </div>
         </Fragment>
       ) : (
-        <Redirect to="/" />
+        <Redirect to='/' />
       )}
     </>
   );
