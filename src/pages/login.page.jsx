@@ -68,6 +68,13 @@ export default function LoginV({ setuser: setuserprop, setloggedin }) {
 
   useEffect(() => {}, [loc.pathname]);
 
+  useEffect(() => {
+    let user_str = localStorage.getItem("aimnet-user");
+    if (user_str) {
+      setsuccess(JSON.parse(user_str));
+    }
+  }, []);
+
   return (
     <>
       {!success ? (

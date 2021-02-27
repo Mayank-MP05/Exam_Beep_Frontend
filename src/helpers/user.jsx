@@ -18,18 +18,23 @@ export const FBlogin = ({ email, password }, successFn, errorFn) => {
 
 //Function to Logout User
 export const FBlogout = (successFn, errorFn) => {
-  localStorage.removeItem("aimnet-user");
+  localStorage.removeItem("aimmet-user");
   successFn();
 };
 
 //Function to Create New User
 export const FBsignup = (
-  { randomProfile, email, password, fullName },
+  { randomProfile, email, password, fullName, isCollege },
   successFn,
   errorFn
 ) => {
   axios
-    .post(`${apiUrl}/signup`, { email, pass1: password, pass2: password })
+    .post(`${apiUrl}/signup`, {
+      email,
+      pass1: password,
+      pass2: password,
+      isCollege,
+    })
     .then((d) => {
       if (d.data.err !== undefined) {
         errorFn(d.data);

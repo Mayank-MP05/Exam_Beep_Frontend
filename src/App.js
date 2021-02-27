@@ -19,7 +19,7 @@ const mql = window.matchMedia(`(min-width: 800px)`);
 function App() {
   const [dock, setdock] = useState(mql.matches);
   const [Sidebaropen, setSidebaropen] = useState(false);
-  const [user, setuser] = useState({});
+  const [user, setuser] = useState({ profilePic: 0 });
   const [Balance, setBalance] = useState(0);
   const [dp, setdp] = useState(parseInt(user.profilePic));
   const [loggedin, setloggedin] = useState(false);
@@ -30,7 +30,6 @@ function App() {
 
   const cleanuser = () => {
     setloggedin(false);
-    setBalance(0);
     localStorage.removeItem("aimnet-user");
     setuser({});
   };
@@ -39,17 +38,9 @@ function App() {
     let userLocal = localStorage.getItem("aimnet-user");
     if (userLocal) {
       const apiUrl = `http://localhost:5000/api`;
+      console.log(userLocal);
       setuser(JSON.parse(userLocal));
-      axios
-        .post(`${apiUrl}/getprofile`, {
-          email: JSON.parse(userLocal).email,
-        })
-        .then((res) => {
-          setloggedin(true);
-          setuser(res.data);
-          setdp(res.data.profilePic);
-          localStorage.setItem("aimnet-user", JSON.stringify(res.data));
-        });
+      setloggedin(true);
     }
   }, []);
 
