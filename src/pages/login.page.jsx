@@ -1,7 +1,10 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { FBlogin } from "../helpers/user";
 import { Link, Redirect, useLocation } from "react-router-dom";
-export default function LoginV({setuser:setuserprop,setloggedin}) {
+import StudentGraphic from "../assets/img/StudentGraphic.svg";
+import "../styles/login.page.css";
+
+export default function LoginV({ setuser: setuserprop, setloggedin }) {
   const [user, setuser] = useState({
     email: "",
     password: "",
@@ -16,13 +19,13 @@ export default function LoginV({setuser:setuserprop,setloggedin}) {
   };
 
   const sucessAlert = () => (
-    <div className='alert alert-success'>
+    <div className="alert alert-success">
       Authentication Complete ! Logged In Sucessful
     </div>
   );
 
   const errorAlert = () => (
-    <div className='alert alert-danger'>
+    <div className="alert alert-danger">
       {errorBody.message
         ? errorBody.message
         : "Something Went Wrong Please Try Again !"}
@@ -36,7 +39,7 @@ export default function LoginV({setuser:setuserprop,setloggedin}) {
         //console.log("User Logged In");
         setsuccess(true);
         setuserprop(user);
-        setloggedin(true)
+        setloggedin(true);
       },
       (error) => {
         seterror(true);
@@ -71,43 +74,51 @@ export default function LoginV({setuser:setuserprop,setloggedin}) {
         <Fragment>
           {success && sucessAlert()}
           {error && errorAlert()}
-          <div className='card col-md-6 p-2 m-auto'>
-            <h4>Login to AIMNet</h4>
-            <div className='form-group'>
-              <label>Email address</label>
-              <input
-                type='email'
-                className='form-control'
-                placeholder='Enter email'
-                name='email'
-                value={user.email}
-                onChange={handleChange}
-              />
+          <div className="Login">
+            <div className="StudentGraphic">
+              <img src={StudentGraphic} alt="Student Graphic" />
             </div>
-            <div className='form-group'>
-              <label>Password</label>
-              <input
-                type='password'
-                className='form-control'
-                id='exampleInputPassword1'
-                placeholder='Password'
-                name='password'
-                value={user.password}
-                onChange={handleChange}
-              />
+            <div className="LoginFormContainer">
+              <div className="LoginForm">
+                <h4 className="text-center">Login to ExamBeep</h4>
+                <div className="form-group">
+                  <label>Email address</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Enter email"
+                    name="email"
+                    value={user.email}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="Password"
+                    name="password"
+                    value={user.password}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="button">
+                  <button className="btn btn-primary w-75" onClick={onSubmit}>
+                    Log In
+                  </button>
+                </div>
+                <p className="m-auto p-2">
+                  Don't have an account?{" "}
+                  <Link to="/signup">Create one here</Link>
+                </p>
+              </div>
             </div>
-            <button
-              className='btn btn-primary w-75 m-auto m-2'
-              onClick={onSubmit}>
-              Log In
-            </button>
-            <p className='m-auto p-2'>
-              Don't have an account <Link to='/signup'>Create one here</Link>
-            </p>
           </div>
         </Fragment>
       ) : (
-        <Redirect to='/' />
+        <Redirect to="/" />
       )}
     </>
   );
