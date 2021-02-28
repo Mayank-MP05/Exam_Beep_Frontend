@@ -52,6 +52,7 @@ export default function CollegeProfile({ user: userprop }) {
     //     seterror(true);
     //   }
     // );
+    
   };
 
   useEffect(() => {
