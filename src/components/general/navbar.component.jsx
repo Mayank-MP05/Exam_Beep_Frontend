@@ -11,12 +11,12 @@ export default function NavbarV({ onSetSidebarOpen, balance }) {
           className='fa fa-bars'
           style={{ fontSize: "30px" }}
           onClick={() => onSetSidebarOpen(true)}></i>
-        <Link className='navbar-brand text-white d-flex' to='/'>
-          <h3 className='m-2 brand-name-ress'>Exam Beep</h3>
+        <Link className='navbar-brand text-black d-flex' to='/'>
+          <h2 className='m-2 fw-bold brand-name-ress'>EXAM BEEP</h2>
           <img
             src={icon}
-            width='50'
-            height='50'
+            width='64'
+            height='64'
             className='d-inline-block align-top'
             alt='Exam Beep App Icon'
             style={{ borderRadius: "50%" }}

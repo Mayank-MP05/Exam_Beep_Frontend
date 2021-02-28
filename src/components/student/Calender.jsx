@@ -9,7 +9,7 @@ import "../../styles/Calender.css";
 
 let newEvent = {
   title: "New event",
-  date: new Date(),
+  date: new Date("2021/03/03"),
   description: "A new event",
   link:
     "https://docs.google.com/forms/d/e/1FAIpQLScPNBVVbKRQL_Rfxi9AI2oeJGzGExhqFjxCmuFiexTouj_m2Q/viewform?fbzx=-174935308807220936",
@@ -23,11 +23,14 @@ export default function ReactCalender() {
         aspectRatio={1.75}
         initialView="dayGridMonth"
         headerToolbar={{
-          left: "prev,next",
+          left: "prev,today,next",
           center: "title",
           right: "dayGridMonth,timeGridWeek,timeGridDay",
         }}
         events={events}
+        eventBackgroundColor="red"
+        eventColor="red"
+        // eventBorderColor="#63D297"
         plugins={[dayGridPlugin, timeGridPlugin]}
       />
       {events.map((exam, index) => (

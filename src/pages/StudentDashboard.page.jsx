@@ -9,7 +9,7 @@ function StudentDashboard({ user }) {
     <div>
       <StudentForm user={user} />
       <Calender user={user} />
-      <UpcomingNotif user={user} />
+      {/* <UpcomingNotif user={user} /> */}
     </div>
   );
 }

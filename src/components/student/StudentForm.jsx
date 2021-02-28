@@ -103,6 +103,10 @@ export default function StudentForm({ user }) {
           </div>
         </div>
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </>
   );
 }
