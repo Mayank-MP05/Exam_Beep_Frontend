@@ -37,9 +37,15 @@ function App() {
   useEffect(() => {
     let userLocal = localStorage.getItem("aimnet-user");
     if (userLocal) {
-      const apiUrl = `http://localhost:5000/api`;
-      console.log(userLocal);
-      setuser(JSON.parse(userLocal));
+      const apiUrl = `http://localhost:5000/api/getUserProfile`;
+      axios
+        .post(apiUrl, {
+          email: JSON.parse(userLocal).email,
+        })
+        .then((d) => {
+          setuser(d.data);
+          console.log(d.data);
+        });
       setloggedin(true);
     }
   }, []);

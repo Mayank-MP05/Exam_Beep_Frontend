@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/StudentForm.css";
+import "./../../styles/StudentForm.css";
 import { updatePRNandCLGidData } from "./../../helpers/user";
-export default function StudentForm({ user }) {
+import { getExamHelper } from "./../../helpers/calender";
+export default function StudentForm({ user, setuser }) {
   const [userD, setuserD] = useState({
     prn_no: "",
     clg_id: "",
@@ -30,10 +31,19 @@ export default function StudentForm({ user }) {
   );
 
   const onSubmit = () => {
+    getExamHelper(
+      { clg_id: userD.clg_id, prn_no: userD.prn_no },
+      (d) => {
+        console.log(d);
+      },
+      () => {}
+    );
     updatePRNandCLGidData(
       { email: user.email, prn_no: userD.prn_no, clg_id: userD.clg_id },
-      () => {
+      (d) => {
         setsuccess(true);
+        console.log(d.data);
+        setuser(d.data);
       },
       () => {
         seterror(true);

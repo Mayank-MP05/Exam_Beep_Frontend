@@ -27,7 +27,13 @@ function TableRender({ tableData, label }) {
         "exam_link",
       ]);
     } else {
-      setheader(["clg_id", "branch_id", "date_of_declaration", "result_link"]);
+      setheader([
+        "clg_id",
+        "branch_id",
+        "subject",
+        "date_of_declaration",
+        "result_link",
+      ]);
     }
   }, []);
 
@@ -44,15 +50,13 @@ function TableRender({ tableData, label }) {
           </tr>
         </thead>
         <tbody>
-          {tableData
-            ? tableData.map((singleArr, i) => {
-                return Object.entries(singleArr).map((element, j) => (
-                  <tr>
-                    {j == 0 ? <th scope='row'></th> : <td>{element[1]}</td>}
-                  </tr>
-                ));
-              })
-            : ""}
+          {tableData.map((singleArr, i) => (
+            <tr key={i}>
+              {Object.entries(singleArr).map((element, j) =>
+                j == 0 ? "" : <td key={j}>{element[1]}</td>
+              )}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

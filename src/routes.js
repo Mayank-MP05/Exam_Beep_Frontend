@@ -23,7 +23,7 @@ function Routes({ loggedin, setuser, setloggedin, user }) {
     <Switch>
       <Route path="/dashboard">
         {loggedin ? (
-          <Dashboard user={user} />
+          <Dashboard user={user} setuser={setuser}/>
         ) : (
           <LoginV setuser={setuser} setloggedin={setloggedin} />
         )}

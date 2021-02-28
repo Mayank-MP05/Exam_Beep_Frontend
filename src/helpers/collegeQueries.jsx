@@ -4,7 +4,7 @@ const apiUrl = `http://localhost:5000/api`;
 export const collegeGet = ({ clg_id }, activeTab, successFn, errorFn) => {
   if (activeTab == 1) {
     collegeGetStudents({ clg_id }, successFn, errorFn);
-  } else if (activeTab == 2) {
+  } else if (activeTab == 3) {
     collegeGetExams({ clg_id }, successFn, errorFn);
   } else {
     collegeGetResults({ clg_id }, successFn, errorFn);
@@ -19,7 +19,7 @@ export const collegeGetStudents = ({ clg_id }, successFn, errorFn) => {
       if (d.data.err !== undefined) {
         errorFn(d.data);
       } else {
-        successFn(d.data);
+        successFn(d.data.data);
         console.log(d.data);
       }
     })
@@ -33,7 +33,7 @@ export const collegeGetExams = ({ clg_id }, successFn, errorFn) => {
       if (d.data.err !== undefined) {
         errorFn(d.data);
       } else {
-        successFn(d.data);
+        successFn(d.data.data);
         console.log(d.data);
       }
     })
@@ -46,7 +46,7 @@ export const collegeGetResults = ({ clg_id }, successFn, errorFn) => {
       if (d.data.err !== undefined) {
         errorFn(d.data);
       } else {
-        successFn(d.data);
+        successFn(d.data.data);
         console.log(d.data);
       }
     })

@@ -38,12 +38,12 @@ function CollegeDashboard({ user }) {
   const toggleTab = (tab) => {
     if (activeTab !== tab) {
       setActiveTab(tab);
-      //collegeGet({ clg_id: user.clg_id }, activeTab, settableData, () => {});
+      collegeGet({ clg_id: user.clg_id }, activeTab, settableData, () => {});
     }
   };
-  // useEffect(() => {
-  //   collegeGet({ clg_id: user.clg_id }, activeTab, settableData, () => {});
-  // }, [activeTab]);
+  useEffect(() => {
+    collegeGet({ clg_id: user.clg_id }, activeTab, settableData, () => {});
+  }, []);
 
   return (
     <div>
