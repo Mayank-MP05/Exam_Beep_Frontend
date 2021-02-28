@@ -8,9 +8,9 @@ import "@fullcalendar/timegrid";
 import "../../styles/Calender.css";
 
 let newEvent = {
-  title: "New event",
-  date: new Date("2021/03/03"),
-  description: "A new event",
+  title: "MOOC exam",
+  date: new Date("2021/03/03 14:00"),
+  description: "Social Networks",
   link:
     "https://docs.google.com/forms/d/e/1FAIpQLScPNBVVbKRQL_Rfxi9AI2oeJGzGExhqFjxCmuFiexTouj_m2Q/viewform?fbzx=-174935308807220936",
 };
@@ -35,14 +35,14 @@ export default function ReactCalender() {
       />
       {events.map((exam, index) => (
         <div className="card upcomingExam" key={index}>
-          <div class="card-body content">
+          <div className="card-body content">
             <div>
-              <h3 class="card-title">{exam.title}</h3>
-              <p class="card-subtitle text-muted">
+              <h3 className="card-title">{exam.title}</h3>
+              <p className="card-subtitle text-muted">
                 {exam.date.toDateString()} {exam.date.toLocaleTimeString()}
               </p>
             </div>
-            <a href={exam.link} class="btn btn-primary">
+            <a href={exam.link} target="_blank" className="btn btn-primary">
               Exam Link
             </a>
           </div>
