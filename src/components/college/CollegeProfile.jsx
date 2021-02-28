@@ -105,15 +105,14 @@ export default function CollegeProfile({ user: userprop }) {
                   value={user.profilePic}
                   name='profilePic'
                   onChange={handleChange}>
-                  <option value='1'>Girl X</option>
-                  <option value='2'>Girl Y</option>
-                  <option value='3'>Girl Z</option>
-                  <option value='4'>Boy D</option>
-                  <option value='5'>Girl V</option>
-                  <option value='6'>Boy E</option>
-                  <option value='7'>Boy F</option>
-                  <option value='8'>Boy J</option>
-                  <option value='9'>Boy K</option>
+                  <option value='1'>College X</option>
+                  <option value='2'>College Y</option>
+                  <option value='3'>College Z</option>
+                  <option value='4'>College D</option>
+                  <option value='5'>College K</option>
+                  <option value='6'>College E</option>
+                  <option value='7'>College F</option>
+                  <option value='8'>College J</option>
                 </select>
               </div>
             </div>
