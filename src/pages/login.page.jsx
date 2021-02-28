@@ -20,7 +20,7 @@ export default function LoginV({ setuser: setuserprop, setloggedin }) {
 
   const sucessAlert = () => (
     <div className='alert alert-success'>
-      Authentication Complete ! Logged In Sucessful
+      Authentication Complete ! Logged In Successful
     </div>
   );
 
@@ -87,7 +87,8 @@ export default function LoginV({ setuser: setuserprop, setloggedin }) {
             </div>
             <div className='LoginFormContainer'>
               <div className='LoginForm'>
-                <h4 className='text-center'>Login to ExamBeep</h4>
+                <h3 className='text-center fw-bold'>Login to EXAM BEEP</h3>
+                <br></br>
                 <div className='form-group'>
                   <label>Email address</label>
                   <input

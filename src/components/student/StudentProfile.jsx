@@ -3,6 +3,7 @@ import { imgArr } from "./../../data/userimages";
 import Spinner from "react-bootstrap/Spinner";
 
 export default function StudentProfile({ user: userprop }) {
+  let change = 0;
   const [user, setuser] = useState({
     email: "",
     name: "",
@@ -38,8 +39,10 @@ export default function StudentProfile({ user: userprop }) {
     setuser(userprop);
   };
 
-  const updateData = () => {
-    let updatedX = { ...userprop, profilePic: parseInt(userprop.profilePic) };
+  const updateData = (props) => {
+    // console.log(user);
+    console.log(props)
+    let updatedX = { ...userprop, name:props.name, profilePic: parseInt(props.profilePic) };
     // updateUserData(
     //   updatedX,
     //   user,
@@ -51,6 +54,8 @@ export default function StudentProfile({ user: userprop }) {
     //     seterror(true);
     //   }
     // );
+    setuser(updatedX);
+    change = change + 1;
   };
 
   useEffect(() => {
@@ -106,13 +111,12 @@ export default function StudentProfile({ user: userprop }) {
                   onChange={handleChange}>
                   <option value='1'>Girl X</option>
                   <option value='2'>Girl Y</option>
-                  <option value='3'>Girl Z</option>
-                  <option value='4'>Boy D</option>
+                  <option value='3'>Boy Z</option>
+                  <option value='4'>Girl D</option>
                   <option value='5'>Girl V</option>
                   <option value='6'>Boy E</option>
                   <option value='7'>Boy F</option>
                   <option value='8'>Boy J</option>
-                  <option value='9'>Boy K</option>
                 </select>
               </div>
             </div>
@@ -138,7 +142,7 @@ export default function StudentProfile({ user: userprop }) {
                     value={user.name}
                     name='name'
                     onChange={handleChange}
-                    placeholder='John Doe'
+                    placeholder='w3Devs'
                   />
                 </div>
               </div>
@@ -151,17 +155,17 @@ export default function StudentProfile({ user: userprop }) {
                     value={user.bio}
                     name='bio'
                     onChange={handleChange}
-                    placeholder='Life is one grand sweet song so start the music'
+                    placeholder='Turn Coffee into Code'
                   />
                 </div>
               </div>
             </div>
           </div>
           <div className='row text-center justify-content-center'>
-            <button className='btn btn-danger m-1' onClick={resetForm}>
+            <button className='btn btn-danger m-1' onClick={()=>resetForm()}>
               Reset
             </button>
-            <button className='btn btn-success m-1' onClick={updateData}>
+            <button className='btn btn-primary m-1' onClick={()=>updateData(user)}>
               Save Changes
             </button>
           </div>

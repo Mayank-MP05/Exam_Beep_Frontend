@@ -14,8 +14,6 @@ function StudentDashboard({ user, setuser }) {
       <StudentForm user={user} setuser={setuser} setExamData={setExamData} />
       <Calender user={user} />
       {/* <UpcomingNotif user={user} /> */}
-      {/* <ExamSub />
-      <ResultSub /> */}
     </div>
   );
 }

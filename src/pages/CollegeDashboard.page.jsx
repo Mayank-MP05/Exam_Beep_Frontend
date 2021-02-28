@@ -54,7 +54,7 @@ function CollegeDashboard({ user }) {
             onClick={() => {
               toggleTab("1");
             }}>
-            Studentts
+            Students
           </NavLink>
         </NavItem>
         <NavItem>

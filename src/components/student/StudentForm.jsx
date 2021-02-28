@@ -113,6 +113,10 @@ export default function StudentForm({ user, setuser }) {
           </div>
         </div>
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </>
   );
 }

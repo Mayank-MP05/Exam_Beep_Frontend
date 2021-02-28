@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { FBsignup } from "../helpers/user";
 import { Link, Redirect } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
+import { Dropdown, Fade } from "react-bootstrap";
 import StudentGraphic from "../assets/img/StudentGraphic.svg";
 import "../styles/signup.page.css";
 
@@ -58,12 +58,14 @@ export default function SignupV({ setdp, setuser: setuserprop, setloggedin }) {
       seterror(true);
     } else {
       let dp = Math.floor(Math.random() * 9);
+      let currURL = window.location.pathname;
+      let isClg=currURL==="/signup"?false:true;
       FBsignup(
         {
           email: user.email,
           pass1: user.pass1,
           pass2: user.pass2,
-          isCollege: false,
+          isCollege: isClg,
         },
         (user, dp) => {
           setsuccess(true);
